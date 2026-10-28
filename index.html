@@ -42,13 +42,14 @@
         .widget-shadow {
             box-shadow: 0 25px 50px -12px rgba(11, 19, 43, 0.12), 0 0 1px 1px rgba(11, 19, 43, 0.05);
         }
-        /* Динамическая высота для нового виджета ипотеки */
+        /* Адаптивная высота точно по размеру контента виджета */
         #ppdwiIpoteka {
+            display: block;
             width: 100% !important;
             border: none !important;
-            min-height: 650px !important;
+            min-height: 0 !important;
             overflow: hidden !important;
-            transition: height 0.3s ease;
+            transition: height 0.25s ease;
         }
     </style>
 </head>
@@ -161,7 +162,7 @@
             </div>
 
             <!-- ИНТЕГРИРОВАННЫЙ НОВЫЙ КАЛЬКУЛЯТОР ПАМПАДУ -->
-            <div class="p-4 sm:p-8 flex flex-col justify-center">
+            <div class="p-2 sm:p-4">
                 <iframe src="https://ipoteka.pampadu.ru/index.html#082f5120-e263-4766-9621-c9e356c4904c" id="ppdwiIpoteka" scrolling="no"></iframe>
                 <script src="https://ipoteka.pampadu.ru/app/ppdw.js"></script>
             </div>
@@ -325,6 +326,24 @@
     <script>
         // Инициализация иконок
         lucide.createIcons();
+
+        // Подстройка высоты iframe при любых изменениях внутри виджета Pampadu
+        window.addEventListener('message', function (event) {
+            if (typeof event.origin === 'string' && event.origin.includes('pampadu.ru')) {
+                const iframe = document.getElementById('ppdwiIpoteka');
+                if (!iframe) return;
+
+                let data = event.data;
+                if (typeof data === 'string') {
+                    try { data = JSON.parse(data); } catch (e) {}
+                }
+
+                const newHeight = data?.height || data?.frameHeight || data?.h || (typeof data === 'number' ? data : null);
+                if (newHeight && Number(newHeight) > 100) {
+                    iframe.style.height = Number(newHeight) + 'px';
+                }
+            }
+        });
     </script>
 </body>
 </html>
