@@ -57,14 +57,14 @@
 
     <!-- Навигация -->
     <header class="fixed w-full z-50 glass-header border-b border-white/10 transition-all">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-                    <i data-lucide="shield-check" class="text-white w-6 h-6"></i>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5 sm:gap-3">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-500/20 shrink-0">
+                    <i data-lucide="shield-check" class="text-white w-5 h-5 sm:w-6 sm:h-6"></i>
                 </div>
                 <div>
-                    <span class="text-white font-bold text-xl tracking-tight">Fin<span class="text-emerald-400">Polis</span></span>
-                    <span class="block text-[10px] text-slate-400 uppercase tracking-widest">Ипотечный брокер</span>
+                    <span class="text-white font-bold text-lg sm:text-xl tracking-tight">Fin<span class="text-emerald-400">Polis</span></span>
+                    <span class="block text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest">Ипотечный брокер</span>
                 </div>
             </div>
             
@@ -75,12 +75,13 @@
                 <a href="#faq" class="hover:text-white transition">Вопросы и ответы</a>
             </nav>
 
-            <div class="flex items-center gap-4">
-                <a href="https://t.me/" target="_blank" class="hidden sm:flex items-center gap-2 text-xs font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 px-4 py-2.5 rounded-lg border border-white/10 transition">
-                    <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
-                    Поддержка в Telegram
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Кнопка Telegram: компактная иконка на мобильных, полная кнопка на планшетах и ПК -->
+                <a href="https://t.me/FinPolis_Support" target="_blank" rel="noopener noreferrer" aria-label="Поддержка в Telegram" title="Поддержка в Telegram" class="flex items-center justify-center gap-2 text-xs font-medium text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 p-2.5 sm:px-4 sm:py-2.5 rounded-lg border border-white/10 hover:border-emerald-500/30 transition">
+                    <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                    <span class="hidden sm:inline">Поддержка в Telegram</span>
                 </a>
-                <a href="#calculator" class="bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg shadow-lg shadow-emerald-500/25 transition">
+                <a href="#calculator" class="bg-emerald-500 hover:bg-emerald-600 text-white text-xs sm:text-sm font-semibold px-3.5 py-2.5 sm:px-5 sm:py-2.5 rounded-lg shadow-lg shadow-emerald-500/25 transition whitespace-nowrap">
                     Рассчитать полис
                 </a>
             </div>
@@ -310,16 +311,38 @@
 
     <!-- Футер -->
     <footer class="bg-brand-dark text-slate-400 py-12 border-t border-white/10 text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center">
-                    <i data-lucide="shield-check" class="text-white w-5 h-5"></i>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Верхняя часть футера: бренд и блок поддержки -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/10">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+                        <i data-lucide="shield-check" class="text-white w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <span class="text-white font-bold text-lg tracking-tight">Fin<span class="text-emerald-400">Polis</span></span>
+                        <span class="block text-[10px] text-slate-500 uppercase tracking-widest">Ипотечный брокер</span>
+                    </div>
                 </div>
-                <span class="text-white font-bold text-lg">Fin<span class="text-emerald-400">Polis</span></span>
+
+                <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+                    <div class="text-xs text-slate-400">
+                        <span class="text-slate-200 font-medium block sm:inline">Остались вопросы или нужна помощь с расчетом?</span>
+                        <span class="block sm:inline sm:ml-1">Мы на связи и готовы помочь.</span>
+                    </div>
+                    <a href="https://t.me/FinPolis_Support" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-semibold text-white bg-white/5 hover:bg-emerald-500/20 px-4 py-2.5 rounded-xl border border-white/10 hover:border-emerald-500/40 transition shrink-0">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+                        Написать в Telegram
+                    </a>
+                </div>
             </div>
-            <p class="text-xs text-slate-500 text-center sm:text-right max-w-md">
-                Сервис сравнения цен на ипотечное страхование. Оформление и оплата полисов происходят напрямую на стороне выбранной страховой компании.
-            </p>
+
+            <!-- Нижняя часть футера: дисклеймер -->
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>© FinPolis. Все права защищены.</p>
+                <p class="text-center sm:text-right max-w-xl">
+                    Сервис сравнения цен на ипотечное страхование. Оформление и оплата полисов происходят напрямую на стороне выбранной страховой компании.
+                </p>
+            </div>
         </div>
     </footer>
 
